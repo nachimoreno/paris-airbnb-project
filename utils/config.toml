@@ -1,0 +1,5 @@
+[mlflow]
+host = "0.0.0.0"
+port = 9999
+url = "http://127.0.0.1:9999"
+allowed_hosts = "localhost:*,0.0.0.0:*,127.0.0.1:*"
