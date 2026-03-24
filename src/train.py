@@ -6,19 +6,21 @@ from __future__ import annotations
 
 from pathlib import Path
 import shutil
-
+import os
 import mlflow
 import mlflow.sklearn
 import pandas as pd
 import xgboost as xgb
-import tomli as tomllib
+import dotenv
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
+dotenv.load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_MLFLOW_PATH = PROJECT_ROOT / "mlruns"
 DATA_PATH = PROJECT_ROOT / "data" / "paris_airbnb_clean.csv"
 DEPLOYMENT_MODEL_PATH = PROJECT_ROOT / "models" / "model"
 
@@ -93,12 +95,11 @@ def train_and_log(X_train, y_train, X_val, y_val) -> str:
     """Train model, log to MLflow, and save artifact for deployment."""
     print("Training model...")
     try:
-        with open(f"../utils/config.toml", "rb") as f:
-            config = tomllib.load(f)
-
-        mlflow.set_tracking_uri(config["mlflow"]["url"])
+        mlflow.set_tracking_uri(
+            os.getenv("MLFLOW_TRACKING_URI", DEFAULT_MLFLOW_PATH)
+        )
     except Exception as e:
-        print(f"Failed to load config for MLflow: {e}")
+        print(f"Failed to set MLflow tracking URI: {e}")
         raise e
 
     mlflow.set_experiment("paris-airbnb-price")
