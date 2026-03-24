@@ -93,7 +93,7 @@ def train_and_log(X_train, y_train, X_val, y_val) -> str:
     """Train model, log to MLflow, and save artifact for deployment."""
     print("Training model...")
     try:
-        with open("utils/config.toml", "rb") as f:
+        with open(f"../utils/config.toml", "rb") as f:
             config = tomllib.load(f)
 
         mlflow.set_tracking_uri(config["mlflow"]["url"])
