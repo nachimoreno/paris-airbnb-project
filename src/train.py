@@ -18,8 +18,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
 
-DATA_PATH = Path("data/paris_airbnb_clean.csv")
-DEPLOYMENT_MODEL_PATH = Path("models/model")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = PROJECT_ROOT / "data" / "paris_airbnb_clean.csv"
+DEPLOYMENT_MODEL_PATH = PROJECT_ROOT / "models" / "model"
 
 # Columns used as features (drops City and raw/unnormalised index columns)
 FEATURE_COLS = [
