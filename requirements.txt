@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-mlflow
+mlflow-skinny
 scikit-learn
 xgboost
 pandas
