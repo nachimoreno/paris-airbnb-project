@@ -50,7 +50,10 @@ Git Push
 | `data/paris_airbnb_clean.csv` | Source dataset (6,688 Paris Airbnb listings, 19 features). |
 | `src/train.py` | Trains the XGBoost model, logs metrics to MLflow, and saves a production-ready copy to `models/model/`. |
 | `src/app.py` | FastAPI service that loads `models/model/` at startup and serves price predictions. |
+| `src/simulate.py` | Simulates calls to the API and logs predictions for comparison with ground truth values. |
+| `src/monitor.py` | Monitors the model performance and reports if there is significant data drift. |
 | `tests/test_api.py` | Automated tests run against the live Docker container to verify the API. |
+| `utils/mlflow_startup.py` | Starts the MLflow server. |
 | `.github/workflows/ci-cd.yml` | **The main orchestrator**: calls training, lints, builds, tests, and pushes the image. |
 | `.github/workflows/train.yml` | A **reusable component** dedicated solely to running `train.py`. |
 | `src/Dockerfile` | Packages the application code and trained model into a single container image. |
@@ -71,7 +74,7 @@ Follow these steps in order to deploy the project to your own Render account.
 Before pushing, run the linter locally to catch style errors early and prevent the CI/CD pipeline from failing.
 
 ```bash
-flake8 .
+flake8
 ```
 
 If this command shows no output, you are good to go!

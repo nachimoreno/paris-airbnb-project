@@ -2,6 +2,7 @@
 .env
 *.db
 *.pyc
+*.txt
 
 /models/*
 /utils/mlflow_data/*
