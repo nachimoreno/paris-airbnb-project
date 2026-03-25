@@ -105,7 +105,7 @@ class PredictionResponse(BaseModel):
 async def lifespan(app: FastAPI):
     global RUN_ID, model
 
-    run_id_path = Path("src/run_id.txt")
+    run_id_path = Path("run_id.txt")
     if run_id_path.exists():
         RUN_ID = run_id_path.read_text().strip()
         print(f"[startup] Found run_id: {RUN_ID}")
