@@ -68,7 +68,8 @@ def main() -> None:
 
     if reference_data.empty or current_data.empty:
         raise ValueError(
-            "Reference or current dataset is empty. Generate more predictions first."
+            "Reference or current dataset is empty. "
+            "Generate more predictions first."
         )
 
     print(
