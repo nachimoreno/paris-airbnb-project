@@ -21,8 +21,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Train model
-        working-directory: src
-        run: python train.py
+        run: python src/train.py
 
       - name: Verify artifact contents
         run: |
