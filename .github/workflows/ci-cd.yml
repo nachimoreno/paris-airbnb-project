@@ -49,11 +49,11 @@ jobs:
 
       - name: Build & Test Docker image
         run: |
-          docker build -t paris-airbnb-app .
+          docker build -t paris-airbnb-app -f docker/Dockerfile .
           docker run -d -p 9696:9696 --name paris-app paris-airbnb-app
           sleep 20
           curl -f http://localhost:9696/health || (docker logs paris-app && exit 1)
-          pytest -q test_api.py
+          pytest -q tests/test_api.py
           docker stop paris-app && docker rm paris-app
 
       - name: Log in to GitHub Container Registry
