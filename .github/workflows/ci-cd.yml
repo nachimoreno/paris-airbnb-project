@@ -74,10 +74,10 @@ jobs:
           echo "Pushing image: $IMAGE_ID with tags: latest, $VERSION"
 
           # Tag with the unique version
-          docker tag nyc-duration-app "$IMAGE_ID:$VERSION"
+          docker tag paris-airbnb-app "$IMAGE_ID:$VERSION"
 
           # Tag with 'latest'
-          docker tag nyc-duration-app "$IMAGE_ID:latest"
+          docker tag paris-airbnb-app "$IMAGE_ID:latest"
 
           # Push both tags
           docker push "$IMAGE_ID:$VERSION"
