@@ -158,7 +158,7 @@ def train_and_log(X_train, y_train, X_val, y_val) -> str:
     print(f"Model saved to: {DEPLOYMENT_MODEL_PATH}")
 
     try:
-        with open("run_id.txt", "w") as f:
+        with open("../models/run_id.txt", "w") as f:
             f.write(run_id)
     except Exception as e:
         print(f"Failed to save run_id: {e}")
