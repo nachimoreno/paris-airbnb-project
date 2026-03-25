@@ -1,2 +1,11 @@
 .DS_Store
 .env
+*.db
+*.pyc
+
+/models/*
+/utils/mlflow_data/*
+utils/mlflow_data/mlflow.db
+src/__pycache__/*
+/data/predictions.csv
+/monitoring_report.html
