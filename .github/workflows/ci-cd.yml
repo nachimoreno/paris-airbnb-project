@@ -38,10 +38,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: trained-model
-          path: src/
+          path: models/
+
+      - name: Inspect downloaded model files
+        run: |
+          echo "Downloaded artifact contents:"
+          find models -maxdepth 4 -type f | sort
+          find models -maxdepth 4 -type d | sort
 
       - name: Verify downloaded artifact
-        run: ls -R src/
+        run: ls -R models/
 
       - name: Lint
         working-directory: src/
