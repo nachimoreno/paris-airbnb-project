@@ -10,4 +10,4 @@ RUN PIP_DEFAULT_TIMEOUT=120 pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 EXPOSE 9696
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "9696"]
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "9696"]
