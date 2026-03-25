@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+mlflow-skinny
+scikit-learn
+xgboost
+pandas
+requests
+python-dotenv
