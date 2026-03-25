@@ -27,13 +27,13 @@ jobs:
       - name: Verify artifact contents
         run: |
           ls -R models
-          cat src/run_id.txt
+          cat run_id.txt
 
       - name: Upload trained model
         uses: actions/upload-artifact@v4
         with:
           name: trained-model
           path: |
-            src/run_id.txt
+            run_id.txt
             models/
           retention-days: 7
