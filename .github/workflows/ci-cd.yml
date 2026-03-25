@@ -48,7 +48,6 @@ jobs:
         run: flake8 . --max-line-length=100 --ignore=E501
 
       - name: Build & Test Docker image
-        working-directory: docker/
         run: |
           docker build -t paris-airbnb-app .
           docker run -d -p 9696:9696 --name paris-app paris-airbnb-app
