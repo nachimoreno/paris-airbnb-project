@@ -44,7 +44,7 @@ jobs:
         run: ls -R src/
 
       - name: Lint
-        working-directory: /
+        working-directory: src/
         run: flake8 . --max-line-length=100 --ignore=E501
 
       - name: Build & Test Docker image
